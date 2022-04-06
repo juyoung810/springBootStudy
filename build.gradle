@@ -37,6 +37,7 @@ dependencies { // 프로젝트 개발에 필요한 의존성 선언 -> 버전 �
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.projectlombok:lombok'
 }
 
 test {

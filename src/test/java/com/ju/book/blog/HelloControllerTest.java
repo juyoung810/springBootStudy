@@ -10,9 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.hamcrest.Matchers.is;
 @RunWith(SpringRunner.class)
 /*
 - 테스트 진행 시 JUnit에 내장된 실행자 외 SpringRunner라는 다른 스프링 실행자를 사용한다.
@@ -42,5 +41,22 @@ public class HelloControllerTest {
         mvc.perform(MockMvcRequestBuilders.get("/hello")) //Mock MVC 통해 /hello 주소로 HTTP GET 요청
                 .andExpect(status().isOk()) // mvc.perform의 결과 HTTP header의 status 검증 -> 200인지 아닌지
                 .andExpect(content().string(hello)); //mvc.perform의 결과 응답 본문 내용 검증 -> 값이 일치하는지 검증
+    }
+
+    @Test
+    public void helloDto가_리턴된다() throws Exception {
+        String name = "hello";
+        int amount = 1000;
+
+        mvc.perform(
+                MockMvcRequestBuilders.get("/hello/dto")
+                        .param("name",name)
+                        .param("amount",String.valueOf(amount))) //Param은 String 만 허용
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name))) //jsonPath이용해 JSON응답값 필드별로 검증 가능 -> $ 기준으로 필드명 명시
+                .andExpect(jsonPath("$.amount",is(amount)));
+
+
+
     }
 }
