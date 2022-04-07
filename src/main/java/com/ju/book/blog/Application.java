@@ -2,7 +2,9 @@ package com.ju.book.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableJpaAuditing //JPA auditing annotation 모두 활성화
 @SpringBootApplication // 스프링 부트 자동설정, 스프링 bean 읽기와 생성 자동으로 설정된다.
 // 이 annotation이 있는 위치부터 설정을 읽어간다. -> 이 클래스가 항상 프로젝트의 최상단에 위치 필요
 public class Application { // 프로젝트의 main class

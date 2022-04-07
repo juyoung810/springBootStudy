@@ -1,5 +1,6 @@
 package com.ju.book.blog.domain.posts;
 
+import com.ju.book.blog.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 /**** entity class 에서는 절대 Setter 메서드를 만들지 않는다. *****/
 @NoArgsConstructor // 기본 생성자 자동 추가
 @Entity // 테이블과 링크될 클래스임을 알린다. 카멜케이스 이름을 언더스코어 네이밍으로 테이블 이름 매칭한다.
-public class Posts { // 실제로 DB 테이블과 매칭될 클래스
+public class Posts extends BaseTimeEntity { // 실제로 DB 테이블과 매칭될 클래스
 
     @Id // 해당 테이블의 PK 필드
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK 생성 규칙, IDENTITY 옵션 추가해야 auto_increment 된다.

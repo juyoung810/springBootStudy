@@ -49,6 +49,7 @@ dependencies {
     // JPA 테스트, 로컬 환경에서 구동할 때 사용할 예정
     // https://mvnrepository.com/artifact/com.h2database/h2
     testImplementation 'com.h2database:h2:1.4.197'
+    implementation 'com.h2database:h2:1.4.197'
 
 
 
