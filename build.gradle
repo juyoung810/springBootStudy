@@ -51,6 +51,13 @@ dependencies {
     testImplementation 'com.h2database:h2:1.4.197'
     implementation 'com.h2database:h2:1.4.197'
 
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mustache
+    implementation 'org.springframework.boot:spring-boot-starter-mustache:2.6.4'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+
+
 
 
 }
